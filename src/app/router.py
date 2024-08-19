@@ -11,7 +11,9 @@ routes = [
     (r"/messaging/send", handlers.messaging.SenderHandler),
     (r"/messaging/sub", handlers.messaging.SubscribeHandler),
     (r"/websocket", handlers.websocket.WebSocket),
-    (r"/api", handlers.home.MainHandler),
+    (r"/api/help", handlers.home.MainHandler),
     (r"/static/(.*)", tornado.web.StaticFileHandler,
+     # TODO: add 404 handler
+
      dict(path=settings['static_path'])),
 ]

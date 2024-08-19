@@ -6,9 +6,6 @@
     
     
     proxy /api tornado:4311 { transparent }
-    proxy /websocket tornado:4311 {
-	    websocket
-    }
     log /var/log/caddy/access.log
     errors /var/log/caddy/error.log
     # Uncomment to enable TLS (HTTPS)
