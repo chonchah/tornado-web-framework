@@ -1,0 +1,11 @@
+.idea
+logs/*.log
+logs/caddy/*.log
+*.log
+/data
+*.env
+/.project
+.docker-sync
+.DS_Store
+*/__pycache__/*
+src/app/emprende-257501-firebase-adminsdk-ieapz-ec9926e73b.json

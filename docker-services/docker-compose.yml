@@ -1,0 +1,42 @@
+services:
+  ### Push Service Server rfc8030 #########################################
+  tornado:
+    build: ./tornado
+    ports:
+      - "4311:4311"
+    env_file: 
+      - ${ENV_FILE}
+    volumes:
+      - '${APP_CODE_PATH_HOST}:/tornado'
+      - '${APP_CODE_PATH_HOST}/../recursos:/recursos'
+    
+### Caddy Server #########################################
+  caddy:
+    image: 'abiosoft/caddy'
+    build: ./caddy
+    volumes:
+      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      - ${CADDY_CONFIG_PATH}:/etc/caddy
+      - ${CADDY_HOST_LOG_PATH}:/var/log/caddy
+      - ${DATA_PATH_HOST}:/app/storage/.caddy
+      - '${APP_CODE_PATH_HOST}/:/app'
+      - '${APP_CODE_PATH_HOST}/../recursos:/recursos'
+      - '${WEB_APP_DIST_DIR}:/var/www/dist'
+    ports:
+      - "${CADDY_HOST_HTTP_PORT}:80"
+      - "${CADDY_HOST_HTTPS_PORT}:443"
+    depends_on:
+      - tornado
+    
+  ### MONGODB #########################################
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+
+    
+   

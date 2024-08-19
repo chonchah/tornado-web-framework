@@ -1,0 +1,9 @@
+.idea
+logs/*.log
+logs/caddy/*.log
+*.log
+/data
+*.env
+/.project
+.docker-sync
+.DS_Store

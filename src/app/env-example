@@ -1,0 +1,10 @@
+APP_NAME="TORNADO WEB FRAMEWORK"
+APP_URL=http://192.168.99.100/
+APP_VERSION=0.9
+
+### MONGO #################################################
+MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD=caverimx
+MONGODB_PASSWD=caverimx
+MONGODB_USER=root
+MONGODB_DB=default
