@@ -25,6 +25,20 @@ Edit docker's environments file for docker. Inside repository directory run and 
 cp docker-services/env-example docker-services/.env
 cp src/app/env-example src/app/.env
 ```
+## CLONE YOUR WEBAPP
+Clone your webapp into `webapp` directory and build for export to `dist` folder.
+```bash
+user@machine:~/tornado-web-framework$ git clone git@gitserver.example.com:user/your-webapp.git webapp
+user@machine:~/tornado-web-framework$ cd webapp
+user@machine:~/tornado-web-framework/webapp$ npm run build
+user@machine:~/tornado-web-framework/webapp$ cd ../docker-services
+user@machine:~/tornado-web-framework/docker-services$ docker compose up -d
+```
+If you need change the entrypoint folder for your webapp public directory you can modify the Docker Services' Environment File `~/docker-services/.env` and change the `WEB_APP_DIST_DIR` for your desired folder and restar the containers running this command:
+```bash
+user@machine:~/tornado-web-framework/docker-services$ docker compose stop
+user@machine:~/tornado-web-framework/docker-services$ docker compose up -d --force-recreate
+```
 ## INIT DOCKER CONTAINER
 ```bash
 cd docker-services
