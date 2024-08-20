@@ -7,12 +7,6 @@
 1. Docker, Make you sure the lastest release running in the target machine. You can visit https://docs.docker.com/docker-for-windows/install/
 2. Install docker-compose. Wether your machine run under windows you need use Docker Toolbox https://docs.docker.com/toolbox/toolbox_install_windows  For more systems visit https://docs.docker.com/compose/
 
-Clone this repo.
-```bash
-git clone https://gitlab.com/caverimx/caverimx-tornado.git webapp
-cd webapp
-```
-
 
 ## ENVIROMENT'S CONFIGURATION
 Copy the file 
